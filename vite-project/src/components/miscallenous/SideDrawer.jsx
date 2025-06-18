@@ -37,7 +37,10 @@ import {
 import { getSender } from "../../config/chatLogics";
 // import Badge from "react-notification-badge";
 import { Badge } from "@chakra-ui/react";
-import { Effect } from "react-notification-badge";
+// import { Effect } from "react-notification-badge";
+import { motion } from "framer-motion";
+
+const MotionBadge = motion(Badge);
 
 function SideDrawer() {
   const { user, chats, notification } = useSelector((state) => state.root);
@@ -157,7 +160,19 @@ function SideDrawer() {
         <div>
           <Menu>
             <MenuButton p={1}>
-              <Badge count={notification.length} effect={Effect.SCALE} />
+              {notification.length > 0 && (
+                <MotionBadge
+                  colorScheme="red"
+                  borderRadius="full"
+                  px={2}
+                  fontSize="0.8em"
+                  initial={{ scale: 0 }}
+                  animate={{ scale: 1 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  {notification.length}
+                </MotionBadge>
+              )}
               <BellIcon fontSize="2xl" m={1} />
             </MenuButton>
             <MenuList pl={5}>

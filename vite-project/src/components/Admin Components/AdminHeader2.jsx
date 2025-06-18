@@ -37,8 +37,13 @@ import {
   setSelectedClub,
 } from "../../redux/rootSlice.jsx";
 // import { getSender } from "../../config/chatLogics";
-import Badge from "react-notification-badge";
-import { Effect } from "react-notification-badge";
+// import Badge from "react-notification-badge";
+// import { Effect } from "react-notification-badge";
+import { Badge } from "@chakra-ui/react";
+// import { Effect } from "react-notification-badge";
+import { motion } from "framer-motion";
+
+const MotionBadge = motion(Badge);
 
 function AdminNavBar() {
   const { user, selectedClub, chats, notification } = useSelector(
@@ -162,7 +167,18 @@ function AdminNavBar() {
           </Menu>
           <Menu>
             <MenuButton p={1}>
-              <Badge count={notification.length} effect={Effect.SCALE} />
+              {/* <Badge count={notification.length} effect={Effect.SCALE} /> */}
+              <MotionBadge
+                colorScheme="red"
+                borderRadius="full"
+                px={2}
+                fontSize="0.8em"
+                initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
+                transition={{ duration: 0.3 }}
+              >
+                {notification.length}
+              </MotionBadge>
               <BellIcon fontSize="2xl" m={1} />
             </MenuButton>
 
