@@ -37,7 +37,7 @@ import {
   setSelectedClub,
 } from "../../redux/rootSlice.jsx";
 // import { getSender } from "../../config/chatLogics";
-import NotificationBadge from "react-notification-badge";
+import Badge from "react-notification-badge";
 import { Effect } from "react-notification-badge";
 
 function AdminNavBar() {
@@ -162,10 +162,7 @@ function AdminNavBar() {
           </Menu>
           <Menu>
             <MenuButton p={1}>
-              <NotificationBadge
-                count={notification.length}
-                effect={Effect.SCALE}
-              />
+              <Badge count={notification.length} effect={Effect.SCALE} />
               <BellIcon fontSize="2xl" m={1} />
             </MenuButton>
 
