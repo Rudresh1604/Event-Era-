@@ -35,7 +35,8 @@ import {
   setNotifications,
 } from "../../redux/rootSlice";
 import { getSender } from "../../config/chatLogics";
-import NotificationBadge from "react-notification-badge";
+// import Badge from "react-notification-badge";
+import { Badge } from "@chakra-ui/react";
 import { Effect } from "react-notification-badge";
 
 function SideDrawer() {
@@ -156,10 +157,7 @@ function SideDrawer() {
         <div>
           <Menu>
             <MenuButton p={1}>
-              <NotificationBadge
-                count={notification.length}
-                effect={Effect.SCALE}
-              />
+              <Badge count={notification.length} effect={Effect.SCALE} />
               <BellIcon fontSize="2xl" m={1} />
             </MenuButton>
             <MenuList pl={5}>
