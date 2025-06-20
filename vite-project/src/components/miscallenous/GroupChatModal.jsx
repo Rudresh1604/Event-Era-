@@ -32,6 +32,8 @@ function GroupChatModal({ children }) {
   const { user, chats } = useSelector((state) => state.root);
   const dispatch = useDispatch();
 
+  const backendUrl = import.meta.env.VITE_BACKEND_URL;
+
   //   !handle search handler
   const handleSearch = async (query) => {
     setSearch(query);
@@ -46,7 +48,7 @@ function GroupChatModal({ children }) {
         },
       };
       const { data } = await axios.get(
-        `/api/admin/user?search=${search}`,
+        `${backendUrl}/api/admin/user?search=${search}`,
         config
       );
       console.log(data);

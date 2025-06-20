@@ -21,7 +21,9 @@ import ScrollableChats from "./ScrollableChats.jsx";
 import io from "socket.io-client";
 import "./MessageStyle.css";
 
-const ENDPOINT = "http://localhost:3001";
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
+
+const ENDPOINT = backendUrl || "http://localhost:3001";
 let socket, selectedChatCompare;
 
 function SingleChat({ fetchAgain, setFetchAgain }) {
@@ -53,7 +55,7 @@ function SingleChat({ fetchAgain, setFetchAgain }) {
         };
         setNewMessage("");
         const { data } = await axios.post(
-          "/api/admin/message",
+          `${backendUrl}/api/admin/message`,
           { content: newMessage, chatId: selectedChat._id },
           config
         );
@@ -86,7 +88,7 @@ function SingleChat({ fetchAgain, setFetchAgain }) {
         },
       };
       const { data } = await axios.get(
-        `/api/admin/message/${selectedChat._id}`,
+        `${backendUrl}/api/admin/message/${selectedChat._id}`,
         config
       );
       console.log(data);

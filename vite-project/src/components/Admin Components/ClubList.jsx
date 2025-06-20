@@ -25,6 +25,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { setSelectedClub, setSelectedEvent } from "../../redux/rootSlice.jsx";
 import { ArrowLeftIcon } from "@chakra-ui/icons";
 
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
+
 function ClubList() {
   const [isCreateClub, setIsCreateClub] = useState(false);
   const [allClub, setAllClub] = useState(null);
@@ -68,7 +70,7 @@ function ClubList() {
           Authorization: `Bearer ${user?.token}`,
         },
       };
-      const { data } = await axios.get("/api/admin/club", config);
+      const { data } = await axios.get(`${backendUrl}/api/admin/club`, config);
       setAllClub(data);
       setLoading(false);
     } catch (error) {
@@ -96,7 +98,10 @@ function ClubList() {
           Authentication: `Bearer ${user.token}`,
         },
       };
-      const { data } = await axios.get(`/api/admin/club/${user.club}`, config);
+      const { data } = await axios.get(
+        `${backendUrl}/api/admin/club/${user.club}`,
+        config
+      );
     } catch (error) {
       console.log(error);
     }
@@ -130,7 +135,7 @@ function ClubList() {
         },
       };
       const { data } = await axios.post(
-        "/api/admin/event/create",
+        `${backendUrl}/api/admin/event/create`,
         {
           name: newEventName,
           description: newEventDescription,
@@ -200,7 +205,7 @@ function ClubList() {
         },
       };
       const { data } = await axios.post(
-        "/api/admin/club/create",
+        `${backendUrl}/api/admin/club/create`,
         {
           clubName: newClubName,
           description: newClubDescription,
@@ -261,7 +266,7 @@ function ClubList() {
         },
       };
       const { data } = await axios.post(
-        "/api/admin/club/details",
+        `${backendUrl}/api/admin/club/details`,
         { clubId: clubId },
         config
       );

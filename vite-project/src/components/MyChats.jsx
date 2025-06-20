@@ -8,6 +8,8 @@ import ChatLoading from "./ChatLoading";
 import { getSender } from "../config/chatLogics";
 import GroupChatModal from "./miscallenous/GroupChatModal";
 
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
+
 function MyChats({ fetchAgain }) {
   const [loggedUser, setLoggedUser] = useState();
   const { user, chats, selectedChat } = useSelector((state) => state.root);
@@ -25,7 +27,7 @@ function MyChats({ fetchAgain }) {
         },
       };
 
-      const { data } = await axios.get("/api/admin/chats", config); // Make the API call
+      const { data } = await axios.get(`${backendUrl}/api/admin/chats`, config); // Make the API call
       console.log("Data");
       console.log(data);
 

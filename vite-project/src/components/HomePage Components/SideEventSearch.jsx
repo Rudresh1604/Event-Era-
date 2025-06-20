@@ -17,6 +17,8 @@ import EventListItem from "./EventListItem";
 import ChatLoading from "../ChatLoading";
 import { useNavigate } from "react-router-dom";
 
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
+
 const SideEventSearch = ({ isOpen, onClose }) => {
   const [search, setSearch] = useState("");
   const [searchResult, setSearchResult] = useState([]);
@@ -42,7 +44,7 @@ const SideEventSearch = ({ isOpen, onClose }) => {
       setLoadingList(true);
 
       const { data } = await axios.get(
-        `/api/general/student/events/?search=${query}`
+        `${backendUrl}/api/general/student/events/?search=${query}`
       );
       // console.log(data);
 

@@ -13,6 +13,8 @@ import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
+
 const Signup = () => {
   const [show, setShow] = useState(false);
   const handleClick = () => setShow(!show);
@@ -70,7 +72,7 @@ const Signup = () => {
         },
       };
       const { data } = await axios.post(
-        "/api/admin/register",
+        `${backendUrl}/api/admin/register`,
         {
           name,
           email,

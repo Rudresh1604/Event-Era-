@@ -6,10 +6,11 @@ import axios from "axios";
 import EventGrid from "../components/HomePage Components/EventGrid";
 import Footer from "../components/HomePage Components/Footer";
 
-const backendUrl = import.meta.env.BACKEND_URL;
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
 const AllEventsPage = () => {
   const toast = useToast();
+
   const [events, setEvents] = useState(null);
   const fetchEvents = async () => {
     try {

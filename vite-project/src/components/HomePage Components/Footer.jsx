@@ -11,7 +11,7 @@ import {
   useToast,
 } from "@chakra-ui/react";
 
-const backendUrl = import.meta.env.BACKEND_URL;
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
 function Footer() {
   const [email, setEmail] = useState(null);

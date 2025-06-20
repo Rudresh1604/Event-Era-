@@ -16,6 +16,8 @@ import { useDispatch } from "react-redux";
 import { setUser } from "../../redux/rootSlice.jsx";
 import { jwtDecode } from "jwt-decode";
 
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
+
 const Login = () => {
   const [show, setShow] = useState(false);
   const handleClick = () => setShow(!show);
@@ -50,7 +52,7 @@ const Login = () => {
       };
 
       const { data } = await axios.post(
-        "/api/admin/login",
+        `${backendUrl}/api/admin/login`,
         { email, password, club, role },
         config
       );

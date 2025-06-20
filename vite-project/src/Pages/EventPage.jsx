@@ -9,7 +9,7 @@ import EventForm from "../components/HomePage Components/EventRegisterForm";
 // const EventForm = React.lazy(() =>
 //   import("../components/HomePage Components/EventRegisterForm")
 // );
-const backendUrl = import.meta.env.BACKEND_URL;
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
 function EventPage() {
   const { eventId } = useParams();

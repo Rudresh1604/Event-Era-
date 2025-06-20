@@ -59,6 +59,8 @@ function AdminNavBar() {
   const [loadingChat, setLoadingChat] = useState();
   // console.log(user);
 
+  const backendUrl = import.meta.env.VITE_BACKEND_URL;
+
   // ! logout handler
   const logoutHandler = () => {
     localStorage.removeItem("userInfo");
@@ -85,7 +87,10 @@ function AdminNavBar() {
           Authorization: `Bearer ${user.token}`,
         },
       };
-      const { data } = await axios.get(`/api/user?search=${search}`, config);
+      const { data } = await axios.get(
+        `${backendUrl}/api/user?search=${search}`,
+        config
+      );
       setLoading(false);
       setSearchResult(data);
     } catch (error) {
@@ -113,7 +118,11 @@ function AdminNavBar() {
         },
       };
 
-      const { data } = await axios.post("/api/chat", { userId }, config);
+      const { data } = await axios.post(
+        `${backendUrl}/api/chat`,
+        { userId },
+        config
+      );
       console.log(data);
       if (!chats?.find((c) => c._id == data._id)) {
         dispatch(setChats([data, ...chats]));

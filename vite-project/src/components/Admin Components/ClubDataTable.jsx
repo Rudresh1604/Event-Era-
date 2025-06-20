@@ -15,6 +15,8 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setSelectedEvent } from "../../redux/rootSlice.jsx";
 
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
+
 const clubDetails = [
   {
     name: "Computer Society Of India",
@@ -49,7 +51,7 @@ function ClubDataTable({ club }) {
       console.log(detail);
 
       const { data } = await axios.post(
-        "/api/admin/event/data",
+        `${backendUrl}/api/admin/event/data`,
         detail,
         config
       );

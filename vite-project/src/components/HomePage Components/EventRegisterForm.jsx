@@ -6,6 +6,8 @@ import { hideLoading, showLoading } from "../../redux/rootSlice.jsx";
 import axios from "axios";
 import { Box, FormControl, FormLabel, Input, Button } from "@chakra-ui/react";
 
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
+
 const EventForm = ({ event }) => {
   const dispatch = useDispatch();
   const [file, setFile] = useState(null);
@@ -76,9 +78,13 @@ const EventForm = ({ event }) => {
     let response;
     try {
       dispatch(showLoading());
-      response = await axios.post(`/api/general/student/register`, formData, {
-        headers: { "Content-Type": "multipart/form-data" },
-      });
+      response = await axios.post(
+        `${backendUrl}/api/general/student/register`,
+        formData,
+        {
+          headers: { "Content-Type": "multipart/form-data" },
+        }
+      );
 
       dispatch(hideLoading());
       console.log(response);
