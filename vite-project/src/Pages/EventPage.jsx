@@ -6,6 +6,10 @@ import { useToast } from "@chakra-ui/react";
 import axios from "axios";
 import EventForm from "../components/HomePage Components/EventRegisterForm";
 
+// const EventForm = React.lazy(() =>
+//   import("../components/HomePage Components/EventRegisterForm")
+// );
+
 function EventPage() {
   const { eventId } = useParams();
   const [event, setEvent] = useState(null);

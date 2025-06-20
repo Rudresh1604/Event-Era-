@@ -4,6 +4,12 @@ import { useDispatch, useSelector } from "react-redux";
 import SideDrawer from "../components/miscallenous/SideDrawer";
 import MyChats from "../components/MyChats";
 import ChatBox from "../components/ChatBox";
+// const ChatBox = React.lazy(() => {
+//   import("../components/ChatBox");
+// });
+// const MyChats = React.lazy(() => {
+//   import("../components/MyChats");
+// });
 import { Box } from "@chakra-ui/react";
 import { setUser } from "../redux/rootSlice";
 import { useNavigate } from "react-router-dom";

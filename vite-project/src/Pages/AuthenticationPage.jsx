@@ -15,6 +15,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { setUser } from "../redux/rootSlice";
 import Signup from "../components/authentication/SignUp";
+// const Signup = React.lazy(() => import("../components/authentication/SignUp"));
+// const Login = React.lazy(() => import("../components/authentication/Login"));
 
 function AuthenticationPage() {
   const dispatch = useDispatch();

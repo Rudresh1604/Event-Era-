@@ -10,10 +10,15 @@ import {
 } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import Login from "../components/authentication/Login.jsx";
-
+// const Login = React.lazy(() =>
+//   import("../components/authentication/Login.jsx")
+// );
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { setUser } from "../redux/rootSlice.jsx";
+// const Signup = React.lazy(() =>
+//   import("../components/authentication/SignUp.jsx")
+// );
 import Signup from "../components/authentication/SignUp.jsx";
 
 function AdminHomePage() {

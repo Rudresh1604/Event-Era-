@@ -7,6 +7,28 @@ import EventList from "../components/HomePage Components/EventList";
 import Sponsors from "../components/HomePage Components/Sponsors";
 import Footer from "../components/HomePage Components/Footer";
 
+// const Header = React.lazy(() =>
+//   import("../components/HomePage Components/Header")
+// );
+// const EventTypes = React.lazy(() =>
+//   import("../components/HomePage Components/EventTypes")
+// );
+// const Intro = React.lazy(() =>
+//   import("../components/HomePage Components/Intro")
+// );
+// const Benefits = React.lazy(() =>
+//   import("../components/HomePage Components/Benefits")
+// );
+// const EventList = React.lazy(() =>
+//   import("../components/HomePage Components/EventList")
+// );
+// const Sponsors = React.lazy(() =>
+//   import("../components/HomePage Components/Sponsors")
+// );
+// const Footer = React.lazy(() =>
+//   import("../components/HomePage Components/Footer")
+// );
+
 function HomePage() {
   return (
     <div>

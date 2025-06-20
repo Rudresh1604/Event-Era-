@@ -7,6 +7,16 @@ import { useDispatch, useSelector } from "react-redux";
 import ClubDataTable from "../components/Admin Components/ClubDataTable.jsx";
 import ClubList from "../components/Admin Components/ClubList.jsx";
 
+// const AdminNavBar = React.lazy(() =>
+//   import("../components/Admin Components/AdminHeader2.jsx")
+// );
+// const ClubDataTable = React.lazy(() =>
+//   import("../components/Admin Components/ClubDataTable.jsx")
+// );
+// const ClubList = React.lazy(() =>
+//   import("../components/Admin Components/ClubList.jsx")
+// );
+
 function AdminDashboardPage() {
   const toast = useToast();
   const navigate = useNavigate();
