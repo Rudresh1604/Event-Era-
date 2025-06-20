@@ -9,6 +9,7 @@ import EventForm from "../components/HomePage Components/EventRegisterForm";
 // const EventForm = React.lazy(() =>
 //   import("../components/HomePage Components/EventRegisterForm")
 // );
+const backendUrl = import.meta.env.BACKEND_URL;
 
 function EventPage() {
   const { eventId } = useParams();
@@ -29,7 +30,7 @@ function EventPage() {
       console.log(eventId);
 
       const { data } = await axios.get(
-        `/api/general/student/access/event/?eventId=${eventId}`
+        `${backendUrl}/api/general/student/access/event/?eventId=${eventId}`
       );
       setEvent(data);
       console.log(data);

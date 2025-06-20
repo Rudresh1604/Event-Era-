@@ -3,6 +3,7 @@ const express = require("express");
 const app = express();
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
+const port = process.env.PORT || 3001;
 require("./config/dbConnect");
 
 // ! required route file
@@ -21,7 +22,7 @@ app.use(cookieParser());
 app.use("/api/admin", adminRoute);
 app.use("/api/general", generalRoute);
 
-const server = app.listen(3001, () => {
+const server = app.listen(port, () => {
   console.log("Server Started ...");
 });
 

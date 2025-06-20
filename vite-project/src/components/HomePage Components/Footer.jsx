@@ -11,6 +11,8 @@ import {
   useToast,
 } from "@chakra-ui/react";
 
+const backendUrl = import.meta.env.BACKEND_URL;
+
 function Footer() {
   const [email, setEmail] = useState(null);
   const [mobile, setMobile] = useState(null);
@@ -33,7 +35,7 @@ function Footer() {
     try {
       dispatch(showLoading());
       setLoading(true);
-      const { data } = await axios.post("/api/general/sponsor", {
+      const { data } = await axios.post(`${backendUrl}/api/general/sponsor`, {
         username: name,
         message,
         sponsoremail: email,
@@ -43,7 +45,7 @@ function Footer() {
       if (!data) {
       }
       toast({
-        title: "Thank you ! our team will react you !",
+        title: "Thank you ! Our team will reach you soon!",
         duration: 5000,
         isClosable: true,
         position: "top",
